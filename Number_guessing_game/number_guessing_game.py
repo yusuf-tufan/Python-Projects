@@ -5,7 +5,7 @@ from tkinter import *
 window=Tk()
 window.minsize(700,700)
 window.config(pady=50)
-
+window.title('Number Guess Game')
 list_num=[]
 right_guess=5
 def range_num():
