@@ -8,9 +8,10 @@ window=Tk()
 window.title('Weather App')
 window.state('zoomed')
 window.configure(bg='light blue')
+window.resizable(False,False)
 #image
 img=Image.open('image_weather.png')
-resized=img.resize((1900,1500),Image.Resampling.LANCZOS)
+resized=img.resize((1650,1000),Image.Resampling.LANCZOS)
 itk=ImageTk.PhotoImage(resized)
 lbl=Label(window,image=itk)
 lbl.image=itk
@@ -40,7 +41,8 @@ def get_data():
         data_lbl.config(width=70,bg='light green',fg='black',font=('Arial',15,'italic','bold'))
         data_lbl.place(x=345,y=130)
         click_button.config(state='disabled')
-        clear_btn.place(x=700,y=350)
+        clear_btn.place(x=755,y=360)
+
     else:
         messagebox.showinfo(title='Error',message='Please Can You Chack Your Informations.\n'
                                                   '-Check characters of word.\n'
@@ -57,18 +59,22 @@ def clear_all():
 data_lbl=Label(text='')
 
 #Label Enter
-enter_lbl=Label(text='Enter A City',bg='orange',fg='black',font=('Arial',11,'bold'))
-enter_lbl.place(x=675,y=35)
+enter_lbl=Label(text='Enter A City',bg='light green',fg='black',font=('Arial',11,'bold'))
+enter_lbl.place(x=750,y=35)
 
 #enter city
 user_input=Entry(width=25,font=('Arial',10,'italic','bold'))
-user_input.place(x=630,y=60)
+user_input.place(x=705,y=65)
 
 #click button
-click_button=Button(text='SEARCH',command=get_data,bg='light blue',fg='red',font=('Arial',10,'italic','bold'))
-click_button.place(x=690,y=90)
+img_search=PhotoImage(file='search.png')
+img_search=img_search.subsample(7,7)
+click_button=Button(image=img_search,command=get_data)
+click_button.place(x=780,y=90)
 
 #clear button
-clear_btn=Button(text='CLEAR ALL',fg='white',bg='red',font=('Arial',10,'italic','bold'),command=clear_all)
+img_clear=PhotoImage(file='delete.png')
+img_clear=img_clear.subsample(8,8)
+clear_btn=Button(image=img_clear,command=clear_all)
 
 window.mainloop()
