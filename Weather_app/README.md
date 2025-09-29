@@ -1,6 +1,6 @@
 # 🌤️ Weather App - Python Tkinter
 
-A simple yet elegant desktop Weather Application built using **Python**, **Tkinter GUI**, and **WeatherAPI**. It allows users to enter a city name and get real-time weather data including temperature, humidity, wind speed, and more.
+A simple yet elegant desktop Weather Application built using **Python**, **Tkinter GUI**. It allows users to enter a city name and get real-time weather data including temperature, humidity, wind speed, and more.
 
 ---
 
