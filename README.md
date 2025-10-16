@@ -31,5 +31,4 @@ Here’s a list of available projects in this repository:
 | 🕷️ **[SeleniumScrapingProject](./SeleniumScrapingProject)** | Web scraping automation using Selenium. |
 | 🎙️ **[Sounddevice_recording](./Sounddevice_recording)** | Record audio using Python's `sounddevice` module. |
 | 🌤️ **[Weather_app](./Weather_app)** | A weather application fetching data from external APIs. |
-
----
+| 📄 **[Docuconvert](./Docuconvert)** | A document conversion tool supporting PDF to DOCX and image to PDF conversions, with more features coming soon. |
