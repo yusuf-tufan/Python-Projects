@@ -4,17 +4,55 @@ body{
 }
 
 #imggoogle {
-    width: 250;
-    height: 80;
+    width: 250px;
+    height: 80px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-top: 180px;
 }
 
+.title{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-style:italic;
+    font-size: 30px;
+}
+.container{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.searchBar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    
+
+}
+.searchBtn{
+    display: flex;
+    margin-left: 5px;
+    border-radius: 1000px;
+    padding: 7px 7px;
+    border: 1px solid #ccc;
+  
+}
+.textinput input {
+    width: 300px;
+    height: 35px;
+    border-radius: 1000px;
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+}
 #textInput{
-    width: 350;
-    height: 25;
+    width: 350px;
+    height: 25px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -25,7 +63,8 @@ body{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: auto;
+    margin-top:1%;
+    background-color: rgb(23, 9, 148);
     
 }
 
@@ -35,7 +74,7 @@ body{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: auto;
+    margin-top: 1%;
 
 }
 
@@ -44,7 +83,7 @@ body{
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
-    
+    background-color: rgb(6, 211, 211);
 
 }
 
