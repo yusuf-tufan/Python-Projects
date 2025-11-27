@@ -50,24 +50,24 @@ def result():
             driver.find_element(By.ID, "CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll").click()
 
             #money amount entry and sending
-            value1=driver.find_element(By.XPATH,"/html/body/div[3]/div/div/div/div[3]/div[2]/div/div[2]/div[1]/input")
+            value1=driver.find_element(By.XPATH,"/html/body/div[4]/div/div/div/div[3]/div[2]/div[2]/div[2]/div[1]/input")
             value1.clear()
             value1.send_keys(f'{user_amount}')
 
             #currency selection
-            sellect1 = driver.find_element(By.XPATH, "/html/body/div[3]/div/div/div/div[3]/div[2]/div/div[2]/div[1]/select")
+            sellect1 = driver.find_element(By.XPATH, "/html/body/div[4]/div/div/div/div[3]/div[2]/div[2]/div[2]/div[1]/select")
             sellect1.send_keys(f'{user_currency}')
             sellect1.send_keys(Keys.ENTER)
 
             #second currency selection
-            sellect2 = driver.find_element(By.XPATH, "/html/body/div[3]/div/div/div/div[3]/div[2]/div/div[2]/div[2]/select")
+            sellect2 = driver.find_element(By.XPATH, "/html/body/div[4]/div/div/div/div[3]/div[2]/div[2]/div[2]/div[2]/select")
             sellect2.send_keys(f'{user_currency2}')
             sellect2.send_keys(Keys.ENTER)
 
             #return the result in the input box
             try:
-                input_element = WebDriverWait(driver, 1).until(
-                    EC.presence_of_element_located((By.XPATH, '/html/body/div[3]/div/div/div/div[3]/div[2]/div/div[2]/div[2]/input'))
+                input_element = WebDriverWait(driver, 0).until(
+                    EC.presence_of_element_located((By.XPATH, '/html/body/div[4]/div/div/div/div[3]/div[2]/div[2]/div[2]/div[2]/input'))
                 )
                 value = input_element.get_attribute("value")
                 time_str = time.strftime("%m/%d/%Y\n%H:%M:%S")
@@ -118,7 +118,7 @@ enter_second=Entry(width=10)
 enter_second.pack(pady=(0,20))
 
 #start button
-lbl_start=Label(text='You Must Start To The URL\nWait After Pressing...',font=('Arial',9,'bold'))
+lbl_start=Label(text='You Must Start To The URL\nWait After Pressing...',font=('Arial',10,'bold'),fg='red')
 lbl_start.pack(padx=200,pady=5)
 btn_start=Button(text='Convert Currency',bg='light green',command=result )
 btn_start.pack(pady=(0,10))
