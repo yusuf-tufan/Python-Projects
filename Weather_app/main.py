@@ -8,9 +8,9 @@ window=Tk()
 window.title('Weather App')
 window.state('zoomed')
 window.configure(bg='light blue')
-window.resizable(False,False)
+window.resizable(False,True)
 #image
-img=Image.open('image_weather.png')
+img=Image.open('Weather_app/image_weather.png')
 resized=img.resize((1650,1000),Image.Resampling.LANCZOS)
 itk=ImageTk.PhotoImage(resized)
 lbl=Label(window,image=itk)
@@ -27,21 +27,23 @@ def get_data():
     get_url = requests.get(url)
 
     responsew=get_url.json()
-
+    
     #show weather
     if get_url.status_code==200:
-        data_lbl.config(text=f'\nLocation: {responsew['location']['name']}\n'
-                            f'Degree(°C): {responsew['current']['temp_c']}°C\n'
-                            f'Degree(°F): {responsew['current']['temp_f']}°F\n'
-                            f'Air: {responsew['current']['condition']['text']}\n'
-                            f'Humidity: {responsew['current']['humidity']}%\n'
-                            f'Wind(kph): {responsew['current']['wind_kph']}kph\n'
-                            f'Precipitation(mm): {responsew['current']['precip_mm']}%\n'
+        data_lbl.config(text=f'\nLocation: {responsew['location']['name']}/{responsew['location']['country']}\n\n'
+                            f'Degree(°C): {responsew['current']['temp_c']}°C\n\n'
+                            f'Degree(°F): {responsew['current']['temp_f']}°F\n\n'
+                            f'Air: {responsew['current']['condition']['text']}\n\n'
+                            f'Humidity: {responsew['current']['humidity']}%\n\n'
+                            f'Wind(kph): {responsew['current']['wind_kph']} kph\n\n'
+                            f'Precipitation(mm): {responsew['current']['precip_mm']} mm\n\n'
+                            f'Time: {responsew['location']['localtime']}\n\n',
+                            
                        )
-        data_lbl.config(width=70,bg='light green',fg='black',font=('Arial',15,'italic','bold'))
-        data_lbl.place(x=345,y=130)
-        click_button.config(state='disabled')
-        clear_btn.place(x=755,y=360)
+        data_lbl.config(width=50,bg='medium sea green',fg='black',font=('Arial',15,'italic','bold'))
+        data_lbl.place(x=500,y=150)
+        search_btn.config(state='disabled')
+        clear_btn.place(x=985,y=65)
 
     else:
         messagebox.showinfo(title='Error',message='Please Can You Chack Your Informations.\n'
@@ -50,31 +52,31 @@ def get_data():
                             )
 
 def clear_all():
-    click_button.config(state='active')
+    search_btn.config(state='active')
     user_input.delete(0,END)
     data_lbl.config(text='')
-    data_lbl.place(x=10000000,y=1000000000)
+    data_lbl.place(x=10000,y=10000)
 
 #Label of weather
 data_lbl=Label(text='')
 
 #Label Enter
-enter_lbl=Label(text='Enter A City',bg='light green',fg='black',font=('Arial',11,'bold'))
-enter_lbl.place(x=750,y=35)
+enter_lbl=Label(text='Enter A City',bg='medium sea green',fg='black',font=('Arial',15,'bold'))
+enter_lbl.place(x=750,y=30)
 
 #enter city
-user_input=Entry(width=25,font=('Arial',10,'italic','bold'))
-user_input.place(x=705,y=65)
+user_input=Entry(width=25,font=('Arial',15,'italic','bold'))
+user_input.place(x=660,y=65)
 
 #click button
-img_search=PhotoImage(file='search.png')
-img_search=img_search.subsample(7,7)
-click_button=Button(image=img_search,command=get_data)
-click_button.place(x=780,y=90)
+img_search=PhotoImage(file='Weather_app/search.png')
+img_search=img_search.subsample(9,9)
+search_btn=Button(image=img_search,command=get_data)
+search_btn.place(x=950,y=65)
 
 #clear button
-img_clear=PhotoImage(file='delete.png')
-img_clear=img_clear.subsample(8,8)
-clear_btn=Button(image=img_clear,command=clear_all)
+img_clear=PhotoImage(file='Weather_app/delete.png')
+img_clear=img_clear.subsample(37,37)
+clear_btn=Button(image=img_clear,command=clear_all,background='red')
 
 window.mainloop()
